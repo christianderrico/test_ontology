@@ -1,0 +1,436 @@
+@prefix : <http://www.semanticweb.org/alberto/ontologies/prova#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix pizza_tutorial: <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#> .
+@base <http://www.semanticweb.org/alberto/ontologies/prova#> .
+
+<http://www.semanticweb.org/alberto/ontologies/prova> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient
+pizza_tutorial:hasIngredient rdf:type owl:ObjectProperty ,
+                                      owl:TransitiveProperty ;
+                             rdfs:range pizza_tutorial:Ingredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasVegetarianIngredient
+pizza_tutorial:hasVegetarianIngredient rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf pizza_tutorial:hasIngredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#servesPizza
+pizza_tutorial:servesPizza rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
+                           rdfs:domain pizza_tutorial:Restaurant ;
+                           rdfs:range pizza_tutorial:Pizza .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#numberOfPieces
+pizza_tutorial:numberOfPieces rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain pizza_tutorial:Pizza ;
+                              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInDollars
+pizza_tutorial:priceInDollars rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro
+pizza_tutorial:priceInEuro rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#pricePerPiece
+pizza_tutorial:pricePerPiece rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:range xsd:decimal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient
+pizza_tutorial:Ingredient rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Meat
+pizza_tutorial:Meat rdf:type owl:Class ;
+                    rdfs:subClassOf pizza_tutorial:Ingredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#MeatPizza
+pizza_tutorial:MeatPizza rdf:type owl:Class ;
+                         rdfs:subClassOf pizza_tutorial:Pizza ;
+                         owl:disjointWith pizza_tutorial:VegetarianPizza .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#NonVegetarianRestaurant
+pizza_tutorial:NonVegetarianRestaurant rdf:type owl:Class ;
+                                       rdfs:subClassOf pizza_tutorial:Restaurant ;
+                                       owl:disjointWith pizza_tutorial:VegetarianRestaurant .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza
+pizza_tutorial:Pizza rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant
+pizza_tutorial:Restaurant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable
+pizza_tutorial:Vegetable rdf:type owl:Class ;
+                         rdfs:subClassOf pizza_tutorial:Ingredient ,
+                                         pizza_tutorial:VegetarianIngredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient
+pizza_tutorial:VegetarianIngredient rdf:type owl:Class ;
+                                    rdfs:subClassOf pizza_tutorial:Ingredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianPizza
+pizza_tutorial:VegetarianPizza rdf:type owl:Class ;
+                               rdfs:subClassOf pizza_tutorial:Pizza .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianRestaurant
+pizza_tutorial:VegetarianRestaurant rdf:type owl:Class ;
+                                    rdfs:subClassOf pizza_tutorial:Restaurant .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour
+pizza_tutorial:Flour rdf:type owl:NamedIndividual ,
+                              pizza_tutorial:Ingredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ham
+pizza_tutorial:Ham rdf:type owl:NamedIndividual ,
+                            pizza_tutorial:Ingredient ,
+                            pizza_tutorial:Meat .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Margherita
+pizza_tutorial:Margherita rdf:type owl:NamedIndividual ,
+                                   pizza_tutorial:Pizza ,
+                                   pizza_tutorial:VegetarianPizza ;
+                          pizza_tutorial:hasIngredient pizza_tutorial:Flour ,
+                                                       pizza_tutorial:Mozzarella ,
+                                                       pizza_tutorial:Tomato ;
+                          pizza_tutorial:numberOfPieces 4 ;
+                          pizza_tutorial:priceInEuro 5 .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mozzarella
+pizza_tutorial:Mozzarella rdf:type owl:NamedIndividual ,
+                                   pizza_tutorial:Ingredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mushroom
+pizza_tutorial:Mushroom rdf:type owl:NamedIndividual ,
+                                 pizza_tutorial:Ingredient ,
+                                 pizza_tutorial:Vegetable ,
+                                 pizza_tutorial:VegetarianIngredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Olives
+pizza_tutorial:Olives rdf:type owl:NamedIndividual ,
+                               pizza_tutorial:Ingredient ,
+                               pizza_tutorial:Vegetable ,
+                               pizza_tutorial:VegetarianIngredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizzeria_Da_Vito
+pizza_tutorial:Pizzeria_Da_Vito rdf:type owl:NamedIndividual ,
+                                         pizza_tutorial:NonVegetarianRestaurant ,
+                                         pizza_tutorial:Restaurant ;
+                                pizza_tutorial:servesPizza pizza_tutorial:Prosciutto .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Prosciutto
+pizza_tutorial:Prosciutto rdf:type owl:NamedIndividual ,
+                                   pizza_tutorial:Pizza ;
+                          pizza_tutorial:hasIngredient pizza_tutorial:Flour ,
+                                                       pizza_tutorial:Ham ,
+                                                       pizza_tutorial:Tomato ;
+                          pizza_tutorial:numberOfPieces 4 ;
+                          pizza_tutorial:priceInEuro 8 .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato
+pizza_tutorial:Tomato rdf:type owl:NamedIndividual ,
+                               pizza_tutorial:Ingredient ,
+                               pizza_tutorial:Vegetable ,
+                               pizza_tutorial:VegetarianIngredient .
+
+
+###  http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Verdure
+pizza_tutorial:Verdure rdf:type owl:NamedIndividual ,
+                                pizza_tutorial:Pizza ;
+                       pizza_tutorial:hasIngredient pizza_tutorial:Flour ,
+                                                    pizza_tutorial:Mushroom ,
+                                                    pizza_tutorial:Olives ,
+                                                    pizza_tutorial:Tomato ;
+                       pizza_tutorial:numberOfPieces 4 ;
+                       pizza_tutorial:priceInEuro 7 .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars> rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S2" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:Restaurant ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate pizza_tutorial:servesPizza ;
+                                      swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r> ;
+                                      swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate pizza_tutorial:hasIngredient ;
+                                                 swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate pizza_tutorial:Meat ;
+                                                            swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i>
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:NonVegetarianRestaurant ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S4" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:Pizza ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate pizza_tutorial:priceInEuro ;
+                                      swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                                      swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate pizza_tutorial:numberOfPieces ;
+                                                 swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                            swrl:builtin swrlb:divide ;
+                                                            swrl:arguments ( <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                                                                             <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e>
+                                                                             <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n>
+                                                                           )
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate pizza_tutorial:pricePerPiece ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                           swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S5" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:Pizza ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate pizza_tutorial:priceInEuro ;
+                                      swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                                      swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate pizza_tutorial:numberOfPieces ;
+                                                 swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                            swrl:builtin swrlb:divide ;
+                                                            swrl:arguments ( <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                                                                             <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e>
+                                                                             <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n>
+                                                                           )
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:BuiltinAtom ;
+                           swrl:builtin <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select> ;
+                           swrl:arguments ( <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p>
+                                            <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r>
+                                          )
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:Pizza ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate pizza_tutorial:hasIngredient ;
+                                      swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x> ;
+                                      swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate pizza_tutorial:Vegetable ;
+                                                 swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y>
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate pizza_tutorial:hasVegetarianIngredient ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x> ;
+                           swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S3" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate pizza_tutorial:Pizza ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate pizza_tutorial:priceInEuro ;
+                                      swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x> ;
+                                      swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                 swrl:builtin swrlb:multiply ;
+                                                 swrl:arguments [ rdf:type rdf:List ;
+                                                                  rdf:first <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars> ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro> ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first 1.06 ;
+                                                                                        rdf:rest rdf:nil
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate pizza_tutorial:priceInDollars ;
+                           swrl:argument1 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x> ;
+                           swrl:argument2 <http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
