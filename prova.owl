@@ -1,0 +1,721 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/alberto/ontologies/prova#"
+     xml:base="http://www.semanticweb.org/alberto/ontologies/prova"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:pizza_tutorial="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/alberto/ontologies/prova"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasVegetarianIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasVegetarianIngredient">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#servesPizza -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#servesPizza">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#numberOfPieces -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#numberOfPieces">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInDollars -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInDollars">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#pricePerPiece -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#pricePerPiece">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Meat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Meat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#MeatPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#MeatPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#NonVegetarianRestaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#NonVegetarianRestaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianRestaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianRestaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianRestaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ham -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ham">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Meat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Margherita -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Margherita">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianPizza"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mozzarella"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato"/>
+        <pizza_tutorial:numberOfPieces rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</pizza_tutorial:numberOfPieces>
+        <pizza_tutorial:priceInEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</pizza_tutorial:priceInEuro>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mozzarella -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mozzarella">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mushroom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mushroom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Olives -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Olives">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizzeria_Da_Vito -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizzeria_Da_Vito">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#NonVegetarianRestaurant"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+        <pizza_tutorial:servesPizza rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Prosciutto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Prosciutto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Prosciutto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ham"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato"/>
+        <pizza_tutorial:numberOfPieces rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</pizza_tutorial:numberOfPieces>
+        <pizza_tutorial:priceInEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8</pizza_tutorial:priceInEuro>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Ingredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#VegetarianIngredient"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Verdure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Verdure">
+        <rdf:type rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Flour"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Mushroom"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Olives"/>
+        <pizza_tutorial:hasIngredient rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Tomato"/>
+        <pizza_tutorial:numberOfPieces rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</pizza_tutorial:numberOfPieces>
+        <pizza_tutorial:priceInEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7</pizza_tutorial:priceInEuro>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Restaurant"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#servesPizza"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Meat"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/i"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#NonVegetarianRestaurant"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#numberOfPieces"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#divide"/>
+                                                <swrl:arguments rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n"/>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#pricePerPiece"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#numberOfPieces"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#divide"/>
+                                                <swrl:arguments rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/e"/>
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/n"/>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                        <swrl:builtin rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select"/>
+                        <swrl:arguments rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/p"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/r"/>
+                        </swrl:arguments>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasIngredient"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Vegetable"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#hasVegetarianIngredient"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#Pizza"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInEuro"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/euro"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.06</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial#priceInDollars"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/alberto/ontologies/2024/pizza_tutorial/dollars"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
