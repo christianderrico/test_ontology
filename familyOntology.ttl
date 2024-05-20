@@ -9,49 +9,6 @@
 <http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb> rdf:type owl:Ontology .
 
 #################################################################
-#    Object Properties
-#################################################################
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/hasFather
-:hasFather rdf:type owl:ObjectProperty ;
-           rdfs:label "hasFather";
-           rdfs:subPropertyOf :hasParent ;
-           owl:inverseOf :isFatherOf .
-
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/hasMother
-:hasMother rdf:type owl:ObjectProperty ;
-           rdfs:label "hasMother";
-           rdfs:subPropertyOf :hasParent ;
-           owl:inverseOf :isMotherOf .
-
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/hasParent
-:hasParent rdf:type owl:ObjectProperty ;
-           rdfs:label "hasParent";
-           rdfs:subPropertyOf owl:topObjectProperty ;
-           owl:inverseOf :isParentOf .
-
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/isFatherOf
-:isFatherOf rdf:type owl:ObjectProperty ;
-            rdfs:label "isFatherOf";
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/isMotherOf
-:isMotherOf rdf:type owl:ObjectProperty ;
-            rdfs:label "isMotherOf";
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
-###  http://www.semanticweb.org/alberto/ontologies/2024/neo4j-fhkb/isParentOf
-:isParentOf rdf:type owl:ObjectProperty ;
-            rdfs:label "isParentOf";
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
-#################################################################
 #    Individuals
 #################################################################
 
